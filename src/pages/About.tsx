@@ -25,8 +25,8 @@ export default function About() {
               and functional place.
             </h3>
             <p className="text-lg text-muted leading-relaxed font-serif">
-              Founded in 2018, Weloveweb has grown from a small team of
-              passionate designers into a full-service web agency. We believe
+              Founded in May, 2024, Weloveweb has grown from a passionate web-dev freelancer
+              into a full-service web agency. We believe
               that every brand has a unique story to tell, and our mission is to
               help them tell it through stunning digital experiences.
             </p>
@@ -40,19 +40,6 @@ export default function About() {
         </div>
       </section>
 
-      <section className="w-full relative h-[60vh] bg-muted overflow-hidden rounded-[5px] group">
-        <img
-          src="https://picsum.photos/seed/teamwork/1920/1080?grayscale"
-          alt="Teamwork"
-          className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-bg/80 via-transparent to-transparent flex flex-col justify-end p-8 md:p-16">
-          <p className="text-2xl md:text-4xl font-serif max-w-3xl text-fg drop-shadow-md">
-            Meet the passionate individuals who make the magic happen.
-          </p>
-        </div>
-      </section>
 
       <section className="flex flex-col md:flex-row gap-16 items-start border-t border-border pt-16">
         <div className="w-full md:w-1/4">

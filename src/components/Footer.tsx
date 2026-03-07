@@ -12,6 +12,18 @@ export default function Footer() {
             About
           </Link>
           <Link
+            to="/projects"
+            className="text-xl font-bold uppercase hover:text-accent transition-colors"
+          >
+            Projects
+          </Link>
+          <Link
+            to="/pricing"
+            className="text-xl font-bold uppercase hover:text-accent transition-colors"
+          >
+            Pricing
+          </Link>
+          <Link
             to="/contact"
             className="text-xl font-bold uppercase hover:text-accent transition-colors"
           >

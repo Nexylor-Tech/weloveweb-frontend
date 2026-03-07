@@ -16,31 +16,24 @@ export default function Home() {
   const testimonials = [
     {
       id: 1,
-      text: "Since adopting this software, our team's productivity has improved dramatically. The user interface is clean and intuitive, allowing even new users to get started quickly without long onboarding. It streamlines our workflows, automates repetitive tasks, and helps us stay organized and focused.",
-      name: "Olivia Williams",
-      role: "Hiring manager",
-      avatar: "https://picsum.photos/seed/olivia/100/100"
-    },
-    {
-      id: 2,
-      text: "Customer support is responsive and knowledgeable, which gives us peace of mind whenever we have questions. It's clear the team behind the product truly understands what users need, and they listen. This software has become an essential part of our daily operations. It saves time, reduces errors, and ultimately helps us deliver better results to our clients.",
-      name: "Olivia Williams",
-      role: "Hiring manager",
-      avatar: "https://picsum.photos/seed/olivia2/100/100"
+      text: "Working with this agency was a game changer for my parlour. They built a beautiful, easy-to-navigate website that perfectly captures our brand's aesthetic. Online bookings have doubled since the launch!",
+      name: "Nilu Tiwari",
+      role: "Salon Owner",
+      avatar: "https://images.pexels.com/photos/3993293/pexels-photo-3993293.jpeg"
     },
     {
       id: 3,
-      text: "Since adopting this software, our team's productivity has improved dramatically. The user interface is clean and intuitive, allowing even new users to get started quickly without long onboarding. It streamlines our workflows, automates repetitive tasks, and helps us stay organized and focused.",
-      name: "Olivia Williams",
-      role: "Hiring manager",
-      avatar: "https://picsum.photos/seed/olivia3/100/100"
+      text: "As an event planner, I need a site that showcases my portfolio beautifully. The team delivered a stunning, highly responsive website that wows my clients before we even meet. Highly recommended!",
+      name: "Chandan Sen",
+      role: "Event Planner",
+      avatar: "https://images.pexels.com/photos/1233720/pexels-photo-1233720.jpeg"
     },
     {
       id: 4,
-      text: "Customer support is responsive and knowledgeable, which gives us peace of mind whenever we have questions. It's clear the team behind the product truly understands what users need, and they listen. This software has become an essential part of our daily operations. It saves time, reduces errors, and ultimately helps us deliver better results to our clients.",
-      name: "Olivia Williams",
-      role: "Hiring manager",
-      avatar: "https://picsum.photos/seed/olivia4/100/100"
+      text: "Our restaurant's new website has significantly boosted our online visibility. The integrated reservation system and dynamic menu display are flawless. It's clear they understand exactly what local businesses need.",
+      name: "Suchona",
+      role: "Restaurant Manager",
+      avatar: "https://images.pexels.com/photos/2079443/pexels-photo-2079443.jpeg"
     }
   ];
   return (
@@ -109,7 +102,7 @@ export default function Home() {
 
       <section className="w-full relative h-[60vh] bg-muted overflow-hidden rounded-[5px] group">
         <img
-          src="https://picsum.photos/seed/workspace/1920/1080?grayscale"
+          src="https://picsum.photos/id/4/1920/1080?grayscale"
           alt="Workspace"
           className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
           referrerPolicy="no-referrer"
@@ -122,8 +115,8 @@ export default function Home() {
         </div>
         <div className="absolute top-8 left-8 right-8 flex justify-between text-sm font-medium uppercase tracking-widest text-bg mix-blend-difference">
           <span>UI UX Design</span>
-          <span>Branding</span>
           <span>Web Dev</span>
+          <span>Maintainance</span>
           <span>SEO</span>
         </div>
       </section>
@@ -192,7 +185,7 @@ export default function Home() {
               year: "2025",
             },
             {
-              title: "Branding",
+              title: "Web maintainance",
               desc: "Creating memorable brand identities.",
               year: "2025",
             },

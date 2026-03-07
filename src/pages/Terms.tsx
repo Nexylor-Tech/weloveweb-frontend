@@ -41,8 +41,7 @@ export default function Terms() {
               <p>
                 You agree to use our services only for lawful purposes and in
                 accordance with these terms. You are responsible for all
-                activities that occur under your account and for maintaining the
-                confidentiality of your password.
+                activities that occur under your contract.
               </p>
 
               <h4 className="text-2xl font-black uppercase tracking-tighter text-fg mt-8">

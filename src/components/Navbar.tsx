@@ -11,6 +11,7 @@ export default function Navbar() {
   const links = [
     { name: "ABOUT", path: "/about" },
     { name: "PROJECTS", path: "/projects" },
+    { name: "PRICING", path: "/pricing" },
     { name: "CONTACT", path: "/contact" },
     { name: "FAQ", path: "/faq" },
     { name: "PRIVACY", path: "/privacy" },
@@ -28,11 +29,10 @@ export default function Navbar() {
           <Link
             key={link.name}
             to={link.path}
-            className={`text-sm font-medium tracking-wide uppercase relative ${
-              location.pathname === link.path
+            className={`text-sm font-medium tracking-wide uppercase relative ${location.pathname === link.path
                 ? "text-fg"
                 : "text-muted hover:text-fg transition-colors"
-            }`}
+              }`}
           >
             {link.name}
             {location.pathname === link.path && (
@@ -60,19 +60,16 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-fg transition-transform duration-300 ${
-              isOpen ? "rotate-45 translate-y-2" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-fg transition-transform duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""
+              }`}
           ></span>
           <span
-            className={`block w-6 h-0.5 bg-fg transition-opacity duration-300 ${
-              isOpen ? "opacity-0" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-fg transition-opacity duration-300 ${isOpen ? "opacity-0" : ""
+              }`}
           ></span>
           <span
-            className={`block w-6 h-0.5 bg-fg transition-transform duration-300 ${
-              isOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-fg transition-transform duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
           ></span>
         </button>
       </div>
@@ -90,9 +87,8 @@ export default function Navbar() {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-lg font-bold tracking-widest uppercase ${
-                  location.pathname === link.path ? "text-fg" : "text-muted"
-                }`}
+                className={`text-lg font-bold tracking-widest uppercase ${location.pathname === link.path ? "text-fg" : "text-muted"
+                  }`}
               >
                 {link.name}
               </Link>

@@ -104,37 +104,27 @@ export default function Contact() {
         <div className="w-full md:w-3/4 grid grid-cols-1 md:grid-cols-2 gap-16">
           <div className="flex flex-col gap-4">
             <h4 className="text-2xl font-black uppercase tracking-tighter">
-              New York
+              Durgapur
             </h4>
             <p className="text-muted font-serif">
-              123 Broadway St, Suite 400
+              PS-39 Benachity
               <br />
-              New York, NY 10001
+              Durgapur, WB 713213
               <br />
-              USA
+              India
             </p>
             <a
-              href="mailto:ny@weloveweb.in"
+              href="https://wa.link/6fwxkm"
               className="text-accent hover:underline font-bold"
             >
-              ny@weloveweb.in
+              +917583918246
             </a>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h4 className="text-2xl font-black uppercase tracking-tighter">
-              London
-            </h4>
-            <p className="text-muted font-serif">
-              45 Oxford St, Floor 2<br />
-              London W1D 2DZ
-              <br />
-              UK
-            </p>
+            <br />
             <a
-              href="mailto:london@weloveweb.in"
+              href="mailto:support@weloveweb.in"
               className="text-accent hover:underline font-bold"
             >
-              london@weloveweb.in
+              support.dgp@weloveweb.in
             </a>
           </div>
         </div>

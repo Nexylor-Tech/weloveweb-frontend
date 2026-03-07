@@ -18,7 +18,7 @@ export default function FAQ() {
     {
       question: "How long does it take to build a website?",
       answer:
-        "A typical website project takes anywhere from 4 to 12 weeks, depending on the scope and complexity. We'll provide a detailed timeline during our initial consultation.",
+        "A typical website project takes anywhere from 2 days to 12 weeks, depending on the scope and complexity. We'll provide a detailed timeline during our initial consultation.",
     },
     {
       question: "Do you offer ongoing support and maintenance?",
