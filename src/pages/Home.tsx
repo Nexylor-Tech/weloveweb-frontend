@@ -85,14 +85,19 @@ export default function Home() {
               project. With a talented and experienced team, we are ready to turn
               your ideas into extraordinary websites.
             </p>
-            <button className="border border-fg rounded-[5px] px-6 py-2 text-sm font-medium uppercase tracking-widest hover:bg-fg hover:text-bg transition-colors flex items-center gap-2">
+            <button
+              onClick={() => {
+                document.getElementById('about-us')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="border border-fg rounded-[5px] px-6 py-2 text-sm font-medium uppercase tracking-widest hover:bg-fg hover:text-bg transition-colors flex items-center gap-2"
+            >
               Scroll Down <span>↓</span>
             </button>
           </div>
         </section>
 
-        <section className="w-full">
-          <h1 className="text-[11vw] sm:text-[10vw] md:text-[9vw] lg:text-[7.5vw] xl:text-[7rem] leading-[0.85] font-black tracking-tighter uppercase whitespace-nowrap">
+        <section className="w-full overflow-hidden">
+          <h1 className="text-[9vw] min-[400px]:text-[6vw] sm:text-[8vw] md:text-[9vw] lg:text-[7.5vw] xl:text-[7rem] leading-[0.85] font-black tracking-tighter uppercase whitespace-nowrap">
             Unlimited
             <br />
             Creativity With
@@ -123,7 +128,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col md:flex-row gap-16 items-start border-t border-border pt-16">
+      <section id="about-us" className="flex flex-col md:flex-row gap-16 items-start border-t border-border pt-16">
         <div className="w-full md:w-1/4">
           <h2 className="text-lg font-bold uppercase tracking-widest flex items-center gap-2">
             <span className="w-2 h-2 bg-accent"></span> About Us
@@ -138,19 +143,19 @@ export default function Home() {
           </h3>
           <div className="grid grid-cols-3 gap-8 border-t border-border pt-8">
             <div className="flex flex-col gap-2">
-              <span className="text-4xl md:text-6xl font-black">62+</span>
+              <span className="text-4xl md:text-6xl font-black">10+</span>
               <span className="text-sm font-medium uppercase tracking-widest text-muted">
                 Projects
               </span>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-4xl md:text-6xl font-black">68+</span>
+              <span className="text-4xl md:text-6xl font-black">15+</span>
               <span className="text-sm font-medium uppercase tracking-widest text-muted">
                 Clients
               </span>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-4xl md:text-6xl font-black">6+</span>
+              <span className="text-4xl md:text-6xl font-black">2+</span>
               <span className="text-sm font-medium uppercase tracking-widest text-muted">
                 Years Exp
               </span>
