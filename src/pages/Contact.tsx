@@ -114,10 +114,10 @@ export default function Contact() {
               USA
             </p>
             <a
-              href="mailto:ny@weloveweb.com"
+              href="mailto:ny@weloveweb.in"
               className="text-accent hover:underline font-bold"
             >
-              ny@weloveweb.com
+              ny@weloveweb.in
             </a>
           </div>
           <div className="flex flex-col gap-4">
@@ -131,10 +131,10 @@ export default function Contact() {
               UK
             </p>
             <a
-              href="mailto:london@weloveweb.com"
+              href="mailto:london@weloveweb.in"
               className="text-accent hover:underline font-bold"
             >
-              london@weloveweb.com
+              london@weloveweb.in
             </a>
           </div>
         </div>
