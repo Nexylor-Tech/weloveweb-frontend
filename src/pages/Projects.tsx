@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import eventmanagementImg from '../assets/eventmanagement.png';
 
 export default function Projects() {
   const projects = [
@@ -7,24 +8,28 @@ export default function Projects() {
       title: 'RESTAURANT WEBSITE',
       category: 'LANDING PAGE',
       image: 'https://picsum.photos/seed/realestate/1200/800?grayscale',
+      link: '#',
     },
     {
       id: 2,
-      title: 'EVENT MANAGEMENT WEBSITE',
-      category: 'WEB APP',
-      image: 'https://picsum.photos/seed/dashboard/1200/800?grayscale',
+      title: 'Bash & Bloom Event Organiser',
+      category: 'Event Management Landing Page',
+      image: eventmanagementImg,
+      link: 'https://bashandbloomeventorganisers.pages.dev',
     },
     {
       id: 3,
       title: 'CLINIC',
       category: 'DASHBOARD',
       image: 'https://picsum.photos/seed/ecommerce/1200/800?grayscale',
+      link: '#',
     },
     {
       id: 4,
       title: 'PARLOR',
       category: 'WEB APP',
       image: 'https://picsum.photos/seed/saas/1200/800?grayscale',
+      link: '#',
     },
   ];
 
@@ -49,17 +54,21 @@ export default function Projects() {
         {projects.map((project) => (
           <div key={project.id} className="flex flex-col gap-6 group cursor-pointer">
             <div className="w-full aspect-4/3 border border-border overflow-hidden bg-muted/30 p-4 md:p-8 lg:p-12 flex items-center justify-center transition-colors group-hover:bg-muted/50">
-              <div className="w-full h-full relative overflow-hidden border border-border/20 shadow-sm rounded-[5px]">
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="w-full h-full relative overflow-hidden border border-border/20 shadow-sm rounded-[5px] block">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out"
                   referrerPolicy="no-referrer"
                 />
-              </div>
+              </a>
             </div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight">{project.title}</h3>
+              <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight">
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  {project.title}
+                </a>
+              </h3>
               <p className="text-sm md:text-base font-medium text-muted uppercase tracking-widest">{project.category}</p>
             </div>
           </div>
