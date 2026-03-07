@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import eventmanagementImg from '../assets/eventmanagement.png';
+import confectionaryImg from '../assets/confectionary.png';
 
 export default function Projects() {
   const projects = [
@@ -19,10 +20,10 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: 'CLINIC',
+      title: 'CONFECTIONERY',
       category: 'DASHBOARD',
-      image: 'https://picsum.photos/seed/ecommerce/1200/800?grayscale',
-      link: '#',
+      image: confectionaryImg,
+      link: 'https://ritasovendemopage.pages.dev',
     },
     {
       id: 4,
