@@ -15,6 +15,7 @@ import FAQ from "./pages/FAQ";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Pricing from "./pages/Pricing";
+import { NotFound } from "./pages/NotFound";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -37,6 +38,7 @@ function AnimatedRoutes() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
