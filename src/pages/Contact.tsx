@@ -1,6 +1,45 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { submitContactForm } from "../api";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    secretVariable: import.meta.env.VITE_SECRET_VARIABLE || ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      await submitContactForm(formData);
+      setSubmitStatus('success');
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        secretVariable: import.meta.env.VITE_SECRET_VARIABLE || ""
+      });
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -25,7 +64,7 @@ export default function Contact() {
               just want to say hello, feel free to reach out.
             </h3>
 
-            <form className="flex flex-col gap-8 mt-16">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-8 mt-16">
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="flex flex-col gap-2 flex-1">
                   <label
@@ -37,6 +76,9 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                     className="border-b border-border bg-transparent py-2 outline-none focus:border-accent transition-colors"
                     placeholder="John Doe"
                   />
@@ -51,6 +93,9 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                     className="border-b border-border bg-transparent py-2 outline-none focus:border-accent transition-colors"
                     placeholder="john@example.com"
                   />
@@ -66,6 +111,9 @@ export default function Contact() {
                 <input
                   type="text"
                   id="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
                   className="border-b border-border bg-transparent py-2 outline-none focus:border-accent transition-colors"
                   placeholder="Project Inquiry"
                 />
@@ -80,16 +128,29 @@ export default function Contact() {
                 <textarea
                   id="message"
                   rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                   className="border-b border-border bg-transparent py-2 outline-none focus:border-accent transition-colors resize-none"
                   placeholder="Tell us about your project..."
                 ></textarea>
               </div>
-              <button
-                type="button"
-                className="bg-fg text-bg font-bold uppercase tracking-widest py-4 px-8 w-max hover:bg-accent hover:text-white transition-colors"
-              >
-                Send Message
-              </button>
+
+              <div className="flex items-center gap-4">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-fg text-bg font-bold uppercase tracking-widest py-4 px-8 w-max hover:bg-accent hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </button>
+                {submitStatus === 'success' && (
+                  <span className="text-green-500 font-bold uppercase tracking-widest text-sm">Message sent successfully!</span>
+                )}
+                {submitStatus === 'error' && (
+                  <span className="text-red-500 font-bold uppercase tracking-widest text-sm">Failed to send message.</span>
+                )}
+              </div>
             </form>
           </div>
         </div>
