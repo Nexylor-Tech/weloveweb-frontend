@@ -26,13 +26,6 @@ export default function Projects() {
       image: confectionaryImg,
       link: 'https://ritasovendemopage.pages.dev',
     },
-    {
-      id: 4,
-      title: 'PARLOR',
-      category: 'WEB APP',
-      image: 'https://picsum.photos/seed/saas/1200/800?grayscale',
-      link: '#',
-    },
   ];
 
   return (

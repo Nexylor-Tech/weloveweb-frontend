@@ -76,34 +76,17 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border gap-4 text-xs uppercase tracking-widest font-medium">
         <div className="flex gap-8">
           <a
-            href="#"
+            href="https://instagram.com/we.loveweb"
+            target="_blank"
             className="hover:text-accent transition-colors border-b border-transparent hover:border-accent"
           >
             Instagram
-          </a>
-          <a
-            href="#"
-            className="hover:text-accent transition-colors border-b border-transparent hover:border-accent"
-          >
-            X
           </a>
         </div>
         <p className="text-muted">
           Copyright © {new Date().getFullYear()} Weloveweb Agency
         </p>
         <div className="flex gap-8">
-          <a
-            href="#"
-            className="hover:text-accent transition-colors border-b border-transparent hover:border-accent"
-          >
-            YouTube
-          </a>
-          <a
-            href="#"
-            className="hover:text-accent transition-colors border-b border-transparent hover:border-accent"
-          >
-            LinkedIn
-          </a>
         </div>
       </div>
     </footer>

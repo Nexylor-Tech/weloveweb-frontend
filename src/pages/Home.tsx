@@ -31,7 +31,7 @@ export default function Home() {
     {
       id: 4,
       text: "Our restaurant's new website has significantly boosted our online visibility. The integrated reservation system and dynamic menu display are flawless. It's clear they understand exactly what local businesses need.",
-      name: "Suchona",
+      name: "Suchona Roy",
       role: "Restaurant Manager",
       avatar: "https://images.pexels.com/photos/2079443/pexels-photo-2079443.jpeg"
     }
@@ -48,28 +48,11 @@ export default function Home() {
         <section className="flex flex-col md:flex-row justify-between items-start gap-16">
           <div className="flex flex-col gap-4 text-sm font-medium uppercase tracking-widest">
             <a
-              href="#"
+              href="https://instagram.com/we.loveweb"
+              target="_blank"
               className="hover:text-accent transition-colors border-b border-fg w-max"
             >
               Instagram
-            </a>
-            <a
-              href="#"
-              className="hover:text-accent transition-colors border-b border-fg w-max"
-            >
-              X
-            </a>
-            <a
-              href="#"
-              className="hover:text-accent transition-colors border-b border-fg w-max"
-            >
-              YouTube
-            </a>
-            <a
-              href="#"
-              className="hover:text-accent transition-colors border-b border-fg w-max"
-            >
-              LinkedIn
             </a>
           </div>
           <div className="max-w-xl text-right flex flex-col items-end gap-8">
