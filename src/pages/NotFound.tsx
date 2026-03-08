@@ -7,9 +7,9 @@ export function NotFound() {
       <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
         404 page not found
       </p>
-      <Link 
-        to="/" 
-        className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+      <Link
+        to="/"
+        className="px-6 py-3 bg-bg text-white font-medium border border-border hover:bg-fg hover:text-bg transition-colors"
       >
         Go to Home
       </Link>
