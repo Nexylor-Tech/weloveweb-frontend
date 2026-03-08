@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion';
 import eventmanagementImg from '../assets/eventmanagement.png';
 import confectionaryImg from '../assets/confectionary.png';
+import restaurantImg from '../assets/restaurant.png';
 
 export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'RESTAURANT WEBSITE',
+      title: "Roy's Fine Dining",
       category: 'LANDING PAGE',
-      image: 'https://picsum.photos/seed/realestate/1200/800?grayscale',
-      link: '#',
+      image: restaurantImg,
+      link: 'https://roysfinedining.pages.dev/',
     },
     {
       id: 2,
