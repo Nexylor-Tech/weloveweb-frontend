@@ -119,13 +119,13 @@ export default function Home() {
           </h3>
           <div className="grid grid-cols-3 gap-8 border-t border-border pt-8">
             <div className="flex flex-col gap-2">
-              <span className="text-4xl md:text-6xl font-black">10+</span>
+              <span className="text-4xl md:text-6xl font-black">30+</span>
               <span className="text-sm font-medium uppercase tracking-widest text-muted">
                 Projects
               </span>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-4xl md:text-6xl font-black">15+</span>
+              <span className="text-4xl md:text-6xl font-black">20+</span>
               <span className="text-sm font-medium uppercase tracking-widest text-muted">
                 Clients
               </span>
