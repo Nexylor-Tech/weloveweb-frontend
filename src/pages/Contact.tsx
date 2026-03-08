@@ -6,6 +6,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    number: "",
     subject: "",
     message: "",
     secretVariable: import.meta.env.VITE_SECRET_VARIABLE || ""
@@ -29,6 +30,7 @@ export default function Contact() {
       setFormData({
         name: "",
         email: "",
+        number: "",
         subject: "",
         message: "",
         secretVariable: import.meta.env.VITE_SECRET_VARIABLE || ""
@@ -65,24 +67,24 @@ export default function Contact() {
             </h3>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-8 mt-16">
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="name"
+                  className="text-sm font-bold uppercase tracking-widest"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="border-b border-border bg-transparent py-2 outline-none focus:border-accent transition-colors"
+                  placeholder="John Doe"
+                />
+              </div>
               <div className="flex flex-col md:flex-row gap-8">
-                <div className="flex flex-col gap-2 flex-1">
-                  <label
-                    htmlFor="name"
-                    className="text-sm font-bold uppercase tracking-widest"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="border-b border-border bg-transparent py-2 outline-none focus:border-accent transition-colors"
-                    placeholder="John Doe"
-                  />
-                </div>
                 <div className="flex flex-col gap-2 flex-1">
                   <label
                     htmlFor="email"
@@ -98,6 +100,22 @@ export default function Contact() {
                     required
                     className="border-b border-border bg-transparent py-2 outline-none focus:border-accent transition-colors"
                     placeholder="john@example.com"
+                  />
+                </div>
+                <div className="flex flex-col gap-2 flex-1">
+                  <label
+                    htmlFor="number"
+                    className="text-sm font-bold uppercase tracking-widest"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="number"
+                    value={formData.number}
+                    onChange={handleChange}
+                    className="border-b border-border bg-transparent py-2 outline-none focus:border-accent transition-colors"
+                    placeholder="+91 98765 43210"
                   />
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, Calendar, Code, ChevronDown } from "lucide-react";
 
@@ -240,9 +241,9 @@ export default function Pricing() {
                       <span className="text-2xl md:text-3xl font-black tracking-tighter">
                         {pkg.price}
                       </span>
-                      <button className="text-sm font-bold uppercase tracking-widest flex items-center gap-2 mt-2 group-hover:text-bg">
+                      <Link to="/contact" className="text-sm font-bold uppercase tracking-widest flex items-center gap-2 mt-2 group-hover:text-bg">
                         Book a session <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
 
@@ -320,9 +321,9 @@ export default function Pricing() {
                       <span className="text-2xl md:text-3xl font-black tracking-tighter">
                         {pkg.price}
                       </span>
-                      <button className="text-sm font-bold uppercase tracking-widest flex items-center gap-2 mt-2 group-hover:text-bg">
+                      <Link to="/contact" className="text-sm font-bold uppercase tracking-widest flex items-center gap-2 mt-2 group-hover:text-bg">
                         Book a session <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
 
@@ -438,9 +439,9 @@ export default function Pricing() {
                       <span className="text-2xl md:text-3xl font-black tracking-tighter">
                         ₹500 - ₹2k
                       </span>
-                      <button className="text-sm font-bold uppercase tracking-widest flex items-center gap-2 mt-2 group-hover:text-bg">
+                      <Link to="/contact" className="text-sm font-bold uppercase tracking-widest flex items-center gap-2 mt-2 group-hover:text-bg">
                         Talk to us <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -458,9 +459,9 @@ export default function Pricing() {
         <p className="text-xl font-serif text-bg/80 max-w-2xl">
           Book a session with our team to explore how we can help elevate your digital presence.
         </p>
-        <button className="mt-8 px-8 py-4 bg-bg text-fg font-bold uppercase tracking-widest hover:bg-bg/90 transition-colors flex items-center gap-3 text-lg">
+        <Link to="/contact" className="mt-8 px-8 py-4 bg-bg text-fg font-bold uppercase tracking-widest hover:bg-bg/90 transition-colors flex items-center gap-3 text-lg">
           Book a Session <ArrowRight className="w-5 h-5" />
-        </button>
+        </Link>
       </section>
     </motion.div>
   );

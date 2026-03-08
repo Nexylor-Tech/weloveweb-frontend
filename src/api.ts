@@ -1,4 +1,4 @@
-export const submitContactForm = async (data: { name: string; email: string; subject: string; message: string; secretVariable?: string }) => {
+export const submitContactForm = async (data: { name: string; email: string; number?: string; subject: string; message: string; secretVariable?: string }) => {
   const scriptUrl = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
   const envSecret = import.meta.env.VITE_SECRET_VARIABLE;
 
@@ -15,11 +15,12 @@ export const submitContactForm = async (data: { name: string; email: string; sub
     await fetch(scriptUrl, {
       method: 'POST',
       body: JSON.stringify({
+        secret: data.secretVariable,
         name: data.name,
         email: data.email,
+        number: data.number,
         subject: data.subject,
         message: data.message,
-        secret: data.secretVariable
       }),
       headers: {
         "Content-Type": "application/json"
