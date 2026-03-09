@@ -200,7 +200,7 @@ export default function Contact() {
             </a>
             <br />
             <a
-              href="mailto:support@weloveweb.in"
+              href="mailto:support.dgp@weloveweb.in"
               className="text-accent hover:underline font-bold"
             >
               support.dgp@weloveweb.in
