@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { submitContactForm } from "../api";
 
@@ -9,23 +9,75 @@ export default function Contact() {
     number: "",
     subject: "",
     message: "",
-    secretVariable: import.meta.env.VITE_SECRET_VARIABLE || ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<any>(null);
+
+  useEffect(() => {
+    const renderWidget = () => {
+      const wt = (window as any).turnstile;
+      if (wt && turnstileRef.current && !widgetIdRef.current) {
+        widgetIdRef.current = wt.render(turnstileRef.current, {
+          sitekey: import.meta.env.VITE_TURNSTILE_SITE_KEY || "",
+          callback: (token: string) => {
+            setTurnstileToken(token);
+          },
+          'error-callback': () => {
+             setTurnstileToken(null);
+          },
+          'expired-callback': () => {
+             setTurnstileToken(null);
+          },
+          theme: 'light'
+        });
+      }
+    };
+
+    if ((window as any).turnstile) {
+      renderWidget();
+    } else {
+      const interval = setInterval(() => {
+        if ((window as any).turnstile) {
+          renderWidget();
+          clearInterval(interval);
+        }
+      }, 100);
+      return () => clearInterval(interval);
+    }
+
+    return () => {
+      const wt = (window as any).turnstile;
+      if (widgetIdRef.current && wt) {
+        wt.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormData(prev => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (!turnstileToken) {
+      setSubmitStatus('error');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
     try {
-      await submitContactForm(formData);
+      await submitContactForm({
+        ...formData,
+        'cf-turnstile-response': turnstileToken
+      });
       setSubmitStatus('success');
       setFormData({
         name: "",
@@ -33,8 +85,11 @@ export default function Contact() {
         number: "",
         subject: "",
         message: "",
-        secretVariable: import.meta.env.VITE_SECRET_VARIABLE || ""
       });
+      if (widgetIdRef.current && (window as any).turnstile) {
+        (window as any).turnstile.reset(widgetIdRef.current);
+      }
+      setTurnstileToken(null);
     } catch (error) {
       setSubmitStatus('error');
     } finally {
@@ -153,6 +208,8 @@ export default function Contact() {
                   placeholder="Tell us about your project..."
                 ></textarea>
               </div>
+
+              <div ref={turnstileRef}></div>
 
               <div className="flex items-center gap-4">
                 <button
