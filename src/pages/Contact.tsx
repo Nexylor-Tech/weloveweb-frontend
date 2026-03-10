@@ -26,12 +26,12 @@ export default function Contact() {
             setTurnstileToken(token);
           },
           'error-callback': () => {
-             setTurnstileToken(null);
+            setTurnstileToken(null);
           },
           'expired-callback': () => {
-             setTurnstileToken(null);
+            setTurnstileToken(null);
           },
-          theme: 'light'
+          theme: 'dark'
         });
       }
     };
@@ -64,7 +64,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!turnstileToken) {
       setSubmitStatus('error');
       return;

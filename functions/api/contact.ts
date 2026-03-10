@@ -14,7 +14,7 @@ export async function onRequestPost(context: any) {
     }
 
     const formData = new FormData();
-    formData.append("secret", env.VITE_TURNSTILE_SECRET_KEY);
+    formData.append("secret", env.TURNSTILE_SECRET_KEY);
     formData.append("response", token);
     formData.append("remoteip", ip);
 
@@ -35,7 +35,7 @@ export async function onRequestPost(context: any) {
       });
     }
 
-    const scriptUrl = env.VITE_GOOGLE_APPS_SCRIPT_URL || env.GOOGLE_APPS_SCRIPT_URL;
+    const scriptUrl = env.GOOGLE_APPS_SCRIPT_URL;
 
     if (!scriptUrl) {
       return new Response(JSON.stringify({ success: false, error: 'Google Apps Script URL is not configured' }), {
@@ -44,10 +44,18 @@ export async function onRequestPost(context: any) {
       });
     }
 
-    // Forward the original data to Google Apps Script
+    // Forward only the allowed fields to Google Apps Script
+    const payload = {
+      name: body.name,
+      email: body.email,
+      number: body.number,
+      subject: body.subject,
+      message: body.message
+    };
+
     const appsScriptResponse = await fetch(scriptUrl, {
       method: 'POST',
-      body: JSON.stringify(body),
+      body: JSON.stringify(payload),
       headers: {
         "Content-Type": "application/json"
       },
