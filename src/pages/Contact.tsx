@@ -250,10 +250,16 @@ export default function Contact() {
               India
             </p>
             <a
+              href="https://wa.link/830ff9"
+              className="text-accent hover:underline font-bold"
+            >
+              +91 7908237625
+            </a>
+            <a
               href="https://wa.link/6fwxkm"
               className="text-accent hover:underline font-bold"
             >
-              +917583918246
+              +91 7583918246
             </a>
             <br />
             <a
