@@ -21,7 +21,7 @@ export default function Pricing() {
       title: 'Basic Website',
       description: 'For small business who are starting out',
       dropdownLabel: 'What you getting?',
-      price: '₹10k',
+      price: '₹15k',
       features: [
         '.com/.in domain + hosting included',
         '4 pages'
@@ -32,7 +32,7 @@ export default function Pricing() {
       title: 'Premium Website',
       description: 'For medium businesses who wanna grow larger',
       dropdownLabel: 'What you getting?',
-      price: '₹15k',
+      price: '₹20k',
       features: [
         '.com/.in domain + hosting included',
         '8 pages',
@@ -44,7 +44,7 @@ export default function Pricing() {
       title: 'Custom Website',
       description: 'If basic or premium is not suiting your need',
       dropdownLabel: 'What you getting',
-      price: 'above ₹25k',
+      price: 'above ₹30k',
       features: [
         '.com/.in domain + hosting included',
         'Tell us about your requirements'
@@ -58,7 +58,7 @@ export default function Pricing() {
       title: 'Basic Backend',
       description: 'For simple data management and forms',
       dropdownLabel: 'What you getting?',
-      price: '₹12k',
+      price: '₹20k',
       features: [
         'Simple database setup',
         'Basic API endpoints',
@@ -70,7 +70,7 @@ export default function Pricing() {
       title: 'Premium Backend',
       description: 'For dynamic applications requiring user auth',
       dropdownLabel: 'What you getting?',
-      price: '₹20k',
+      price: '₹30k',
       features: [
         'User authentication & authorization',
         'Advanced database modeling',
