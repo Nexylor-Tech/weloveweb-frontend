@@ -95,7 +95,7 @@ export default function Pricing() {
     frontend: [
       {
         duration: '1 Month',
-        price: '₹3.5k',
+        price: '₹4k',
         popular: false,
         features: [
           'Unlimited frontend changes',
@@ -105,7 +105,7 @@ export default function Pricing() {
       },
       {
         duration: '6 Months',
-        price: '₹3k',
+        price: '₹3.5k',
         popular: true,
         features: [
           'Unlimited frontend changes',
@@ -116,7 +116,7 @@ export default function Pricing() {
       },
       {
         duration: '12 Months',
-        price: '₹2.2k',
+        price: '₹3k',
         popular: false,
         features: [
           'Unlimited frontend changes',
@@ -129,7 +129,7 @@ export default function Pricing() {
     backend: [
       {
         duration: '1 Month',
-        price: '₹12k',
+        price: '₹10k',
         popular: false,
         features: [
           'Server hosting included',
@@ -140,7 +140,7 @@ export default function Pricing() {
       },
       {
         duration: '6 Months',
-        price: '₹10k',
+        price: '₹8.5k',
         popular: true,
         features: [
           'Server hosting inlcuded',
@@ -152,7 +152,7 @@ export default function Pricing() {
       },
       {
         duration: '12 Months',
-        price: '₹9k',
+        price: '₹7k',
         popular: false,
         features: [
           'Server hosting included',
