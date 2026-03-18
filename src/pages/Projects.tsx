@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import eventmanagementImg from '../assets/eventmanagement.png';
 import confectionaryImg from '../assets/confectionary.png';
 import restaurantImg from '../assets/restaurant.png';
-
+import tuitionImg from '../assets/tuitiondemo.png';
 export default function Projects() {
   const projects = [
     {
@@ -25,6 +25,13 @@ export default function Projects() {
       category: 'DASHBOARD',
       image: confectionaryImg,
       link: 'https://ritasovendemopage.pages.dev',
+    },
+    {
+      id: 4,
+      title: 'TUITION',
+      category: 'DASHBOARD',
+      image: tuitionImg,
+      link: 'https://tuitiondemopage.pages.dev/',
     },
   ];
 
