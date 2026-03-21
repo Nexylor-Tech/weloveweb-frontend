@@ -16,6 +16,7 @@ import FAQ from "./pages/FAQ";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Pricing from "./pages/Pricing";
+import SMM from "./pages/SMM";
 import { NotFound } from "./pages/NotFound";
 
 function ScrollToTop() {
@@ -46,6 +47,7 @@ function AnimatedRoutes() {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/smm" element={<SMM />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy" element={<Privacy />} />

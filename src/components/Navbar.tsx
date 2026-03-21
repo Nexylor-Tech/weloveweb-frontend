@@ -12,6 +12,7 @@ export default function Navbar() {
     { name: "ABOUT", path: "/about" },
     { name: "PROJECTS", path: "/projects" },
     { name: "PRICING", path: "/pricing" },
+    { name: "SMM", path: "/smm" },
     { name: "CONTACT", path: "/contact" },
     { name: "FAQ", path: "/faq" },
     { name: "PRIVACY", path: "/privacy" },
