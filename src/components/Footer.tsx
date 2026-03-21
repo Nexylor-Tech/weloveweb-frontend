@@ -76,7 +76,7 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border gap-4 text-xs uppercase tracking-widest font-medium">
         <div className="flex gap-8">
           <a
-            href="https://instagram.com/we.loveweb"
+            href="https://instagram.com/nilanjan.tech"
             target="_blank"
             className="hover:text-accent transition-colors border-b border-transparent hover:border-accent"
           >

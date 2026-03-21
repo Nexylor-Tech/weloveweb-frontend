@@ -48,7 +48,7 @@ export default function Home() {
         <section className="flex flex-col md:flex-row justify-between items-start gap-16">
           <div className="flex flex-col gap-4 text-sm font-medium uppercase tracking-widest">
             <a
-              href="https://instagram.com/i_only_use_arch_btw"
+              href="https://instagram.com/nilanjan.tech"
               target="_blank"
               className="hover:text-accent transition-colors border-b border-fg w-max"
             >
