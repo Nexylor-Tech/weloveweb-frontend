@@ -17,7 +17,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: '01',
-    title: 'Confectionary',
+    title: 'Bakery',
     description: 'We listen to, process and analyse social conversations.',
     client: "Rita's Oven",
     image: confectionaryImg,

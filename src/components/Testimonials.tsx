@@ -4,39 +4,39 @@ import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'John Doe',
-    role: 'CEO, TechCorp',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque felis tellus fringilla sed tortor morbi dui.',
+    name: 'Aarav Sharma',
+    role: 'Founder, RetailHub',
+    quote: 'Their SEO strategies completely transformed our online visibility. We saw a 3x increase in organic traffic within months.',
     color: 'bg-green-200'
   },
   {
-    name: 'Jane Smith',
-    role: 'Founder, CreativeCo',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque felis tellus fringilla sed tortor morbi dui.',
+    name: 'Priya Patel',
+    role: 'Marketing Director, EduTech India',
+    quote: 'The web design team delivered a stunning, user-friendly platform that perfectly captures our brand identity.',
     color: 'bg-lime-200'
   },
   {
-    name: 'Mike Johnson',
-    role: 'Director, InnovateInc',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque felis tellus fringilla sed tortor morbi dui.',
+    name: 'Rohan Gupta',
+    role: 'CEO, NextGen Solutions',
+    quote: 'Incredible ROI on our social media campaigns. They truly understand how to engage the target audience.',
     color: 'bg-purple-300'
   },
   {
-    name: 'Sarah Lee',
-    role: 'Manager, GrowthHub',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque felis tellus fringilla sed tortor morbi dui.',
+    name: 'Neha Desai',
+    role: 'Owner, Blossom Boutique',
+    quote: 'Our e-commerce sales have skyrocketed since they took over our digital marketing and performance tuning.',
     color: 'bg-blue-200'
   },
   {
-    name: 'David Kim',
-    role: 'Product Lead, DesignX',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque felis tellus fringilla sed tortor morbi dui.',
+    name: 'Vikram Singh',
+    role: 'Lead Strategist, FinServe',
+    quote: 'Professional, data-driven, and highly responsive. The best digital agency partner we have worked with.',
     color: 'bg-yellow-200'
   },
   {
-    name: 'Emily Chen',
-    role: 'Designer, Artistry',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque felis tellus fringilla sed tortor morbi dui.',
+    name: 'Ananya Reddy',
+    role: 'Creative Head, Artistry Co.',
+    quote: 'They brought our vision to life with brilliant web development and an unmatched attention to detail.',
     color: 'bg-pink-200'
   }
 ];
@@ -125,9 +125,6 @@ export default function Testimonials() {
                 <br />
                 <span className="opacity-70">{t.role}</span>
               </div>
-              <button className="mt-6 w-full py-2 border-2 border-black font-heading font-bold uppercase text-xs hover:bg-black hover:text-white transition-colors">
-                View Full Story
-              </button>
             </motion.div>
           ))}
         </motion.div>
@@ -135,4 +132,3 @@ export default function Testimonials() {
     </section>
   );
 }
-

@@ -104,9 +104,9 @@ export default function Pricing() {
       )}
 
       <h3 className="text-3xl font-heading font-black uppercase tracking-tighter mb-2">{plan.name}</h3>
-      <div className="flex items-baseline gap-1 mb-4">
-        <span className="text-5xl font-heading font-black">{plan.price}</span>
-        <span className="text-lg font-sans opacity-80">{plan.period}</span>
+      <div className="flex flex-wrap items-baseline gap-1 mb-4">
+        <span className="text-4xl lg:text-5xl font-heading font-black break-words">{plan.price}</span>
+        <span className="text-base lg:text-lg font-sans opacity-80 whitespace-nowrap">{plan.period}</span>
       </div>
       <p className="font-sans text-lg opacity-90 mb-8">{plan.description}</p>
 
