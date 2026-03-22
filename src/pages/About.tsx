@@ -1,92 +1,49 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function About() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col gap-32"
-    >
-      <section className="w-full">
-        <h1 className="text-[9vw] sm:text-[10vw] md:text-[9vw] lg:text-[7.5vw] xl:text-[7rem] leading-[0.85] font-black tracking-tighter uppercase mb-16 whitespace-nowrap">
-          About Us
-        </h1>
-        <div className="flex flex-col md:flex-row gap-16 items-start border-t border-border pt-16">
-          <div className="w-full md:w-1/4">
-            <h2 className="text-lg font-bold uppercase tracking-widest flex items-center gap-2">
-              <span className="w-2 h-2 bg-accent"></span> Our Story
-            </h2>
-          </div>
-          <div className="w-full md:w-3/4 flex flex-col gap-8">
-            <h3 className="text-3xl md:text-5xl font-serif leading-tight">
-              We started with a simple idea: to make the web a more beautiful
-              and functional place.
-            </h3>
-            <p className="text-lg text-muted leading-relaxed font-serif">
-              Founded in May, 2024, Weloveweb has grown from a passionate web-dev freelancer
-              into a full-service web agency. We believe
-              that every brand has a unique story to tell, and our mission is to
-              help them tell it through stunning digital experiences.
-            </p>
-            <p className="text-lg text-muted leading-relaxed font-serif">
-              Our approach is collaborative and transparent. We work closely
-              with our clients to understand their goals, challenges, and
-              vision. This allows us to create custom solutions that not only
-              look great but also deliver measurable results.
-            </p>
-          </div>
+    <div className="bg-[#F8F9FA] min-h-screen flex flex-col">
+      <Navbar />
+      <main className="relative flex-grow flex items-center justify-center py-32 px-6 md:px-12 w-full overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000"
+            alt="Our Team Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/75"></div>
         </div>
-      </section>
 
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <motion.h1
+            className="text-6xl md:text-[8rem] font-heading font-black leading-[0.85] tracking-tighter text-[#d8ff75] uppercase mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            About Us
+          </motion.h1>
 
-      <section className="flex flex-col md:flex-row gap-16 items-start border-t border-border pt-16">
-        <div className="w-full md:w-1/4">
-          <h2 className="text-lg font-bold uppercase tracking-widest flex items-center gap-2">
-            <span className="w-2 h-2 bg-accent"></span> Our Values
-          </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
+          >
+            <p className="text-2xl md:text-4xl font-sans leading-relaxed text-white font-medium">
+              We are a digital marketing agency focused on creating beautiful, functional, and impactful digital experiences. Our team of experts is dedicated to helping brands grow and succeed in the digital world.
+            </p>
+            <p className="text-lg md:text-2xl font-sans text-gray-300 leading-relaxed max-w-4xl mx-auto">
+              Founded with a passion for innovation and creativity, weloveweb combines data-driven strategies with stunning design to deliver results that matter. We believe in the power of digital to transform businesses and connect with audiences on a deeper level.
+            </p>
+          </motion.div>
         </div>
-        <div className="w-full md:w-3/4 grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div className="flex flex-col gap-4">
-            <h4 className="text-2xl font-black uppercase tracking-tighter">
-              Creativity
-            </h4>
-            <p className="text-muted font-serif">
-              We push boundaries and explore new ideas to deliver innovative
-              solutions that stand out.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h4 className="text-2xl font-black uppercase tracking-tighter">
-              Quality
-            </h4>
-            <p className="text-muted font-serif">
-              We are committed to excellence in everything we do, from design to
-              development.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h4 className="text-2xl font-black uppercase tracking-tighter">
-              Collaboration
-            </h4>
-            <p className="text-muted font-serif">
-              We believe in the power of teamwork and work closely with our
-              clients to achieve their goals.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h4 className="text-2xl font-black uppercase tracking-tighter">
-              Integrity
-            </h4>
-            <p className="text-muted font-serif">
-              We are honest, transparent, and always act in the best interests
-              of our clients.
-            </p>
-          </div>
-        </div>
-      </section>
-    </motion.div>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

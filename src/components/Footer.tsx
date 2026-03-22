@@ -1,92 +1,74 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-border mt-32 px-8 py-16 md:px-16 flex flex-col gap-16">
-      <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-        <div className="flex flex-col gap-4">
-          <Link
-            to="/about"
-            className="text-xl font-bold uppercase hover:text-accent transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            to="/projects"
-            className="text-xl font-bold uppercase hover:text-accent transition-colors"
-          >
-            Projects
-          </Link>
-          <Link
-            to="/pricing"
-            className="text-xl font-bold uppercase hover:text-accent transition-colors"
-          >
-            Pricing
-          </Link>
-          <Link
-            to="/contact"
-            className="text-xl font-bold uppercase hover:text-accent transition-colors"
-          >
-            Contact
-          </Link>
-          <Link
-            to="/faq"
-            className="text-xl font-bold uppercase hover:text-accent transition-colors"
-          >
-            FAQ
-          </Link>
-          <Link
-            to="/privacy"
-            className="text-xl font-bold uppercase hover:text-accent transition-colors"
-          >
-            Privacy
-          </Link>
-          <Link
-            to="/terms"
-            className="text-xl font-bold uppercase hover:text-accent transition-colors"
-          >
-            Terms
-          </Link>
-        </div>
+    <footer className="bg-brand-dark text-white pt-24 pb-12 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
+          <div className="lg:col-span-2">
+            <h2 className="text-4xl md:text-6xl font-heading font-black tracking-tighter mb-6">
+              Let's build<br />
+              <span className="text-brand-purple">something great.</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-md mb-8 font-sans">
+              We are a digital marketing agency focused on creating beautiful, functional, and impactful digital experiences.
+            </p>
+          </div>
 
-        <div className="max-w-sm flex flex-col gap-4">
-          <p className="text-sm uppercase tracking-widest font-medium">
-            Receive valuable industry insights and creative inspiration directly
-            in your email.
-          </p>
-          <div className="flex items-center border-b border-border pb-2 mt-4">
-            <input
-              type="email"
-              placeholder="ENTER YOUR EMAIL"
-              className="bg-transparent outline-none flex-1 text-sm uppercase placeholder:text-muted"
-            />
-            <button className="text-fg hover:text-accent transition-colors">
-              →
-            </button>
+          <div>
+            <h4 className="text-lg font-heading font-bold mb-6 text-brand-yellow">Navigation</h4>
+            <ul className="space-y-4 font-sans text-gray-300">
+              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
+              <li><Link to="/projects" className="hover:text-white transition-colors">Projects</Link></li>
+              <li><Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+              <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-heading font-bold mb-6 text-brand-pink">Socials</h4>
+            <ul className="space-y-4 font-sans text-gray-300">
+              <li>
+                <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Instagram size={18} /> Instagram
+                </a>
+              </li>
+            </ul>
+
+            <h4 className="text-lg font-heading font-bold mb-6 mt-8 text-brand-green">Contact</h4>
+            <ul className="space-y-4 font-sans text-gray-300">
+              <li>
+                <a href="tel:+917908237625" className="hover:text-white transition-colors">
+                  +91 7908237625
+                </a>
+              </li>
+              <li>
+                <a href="tel:+917583918246" className="hover:text-white transition-colors">
+                  +91 7583918246
+                </a>
+              </li>
+              <li>
+                <a href="mailto:support.dgp@weloveweb.in" className="hover:text-white transition-colors break-all">
+                  support.dgp@weloveweb.in
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div className="w-full text-center">
-        <h2 className="text-[12vw] leading-none font-black tracking-tighter uppercase">
-          we love web
-        </h2>
-      </div>
-
-      <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border gap-4 text-xs uppercase tracking-widest font-medium">
-        <div className="flex gap-8">
-          <a
-            href="https://instagram.com/nilanjan.tech"
-            target="_blank"
-            className="hover:text-accent transition-colors border-b border-transparent hover:border-accent"
-          >
-            Instagram
-          </a>
-        </div>
-        <p className="text-muted">
-          Copyright © {new Date().getFullYear()} Weloveweb Agency
-        </p>
-        <div className="flex gap-8">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="font-heading font-bold text-2xl tracking-tighter">
+            weloveweb<span className="text-brand-purple">.</span>
+          </p>
+          <p className="text-sm text-gray-500 font-sans">
+            &copy; {new Date().getFullYear()} weloveweb. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-sm text-gray-500 font-sans">
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>

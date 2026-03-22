@@ -1,18 +1,34 @@
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import { motion } from 'framer-motion';
 
 export function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-      <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">404</h1>
-      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        404 page not found
-      </p>
-      <Link
-        to="/"
-        className="px-6 py-3 bg-bg text-white font-medium border border-border hover:bg-fg hover:text-bg transition-colors"
-      >
-        Go to Home
-      </Link>
+    <div className="bg-[#F8F9FA] min-h-screen text-brand-dark flex flex-col">
+      <Navbar />
+      <main className="flex-grow flex items-center justify-center pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center"
+        >
+          <h1 className="text-8xl md:text-[10rem] font-heading font-black leading-[0.85] tracking-tighter text-brand-green uppercase mb-6">
+            404
+          </h1>
+          <p className="text-2xl md:text-3xl font-sans font-medium text-brand-dark mb-12">
+            Oops! This page went missing.
+          </p>
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center px-8 py-4 bg-brand-dark text-white font-heading font-bold rounded-none hover:bg-brand-purple hover:text-brand-dark transition-colors uppercase tracking-widest text-sm"
+          >
+            Go back Home
+          </Link>
+        </motion.div>
+      </main>
+      <Footer />
     </div>
   );
 }

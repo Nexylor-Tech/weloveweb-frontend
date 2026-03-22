@@ -44,22 +44,21 @@ export async function onRequestPost(context: any) {
       });
     }
 
-    // Forward only the allowed fields to Google Apps Script
-    const payload = {
-      name: body.name,
-      email: body.email,
-      number: body.number,
-      subject: body.subject,
-      message: body.message
-    };
-
+    // Forward the request to Google Apps Script
     const appsScriptResponse = await fetch(scriptUrl, {
-      method: 'POST',
-      body: JSON.stringify(payload),
+      method: "POST",
+      body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json"
-      },
+      }
     });
+
+    if (!appsScriptResponse.ok) {
+        return new Response(JSON.stringify({ success: false, error: 'Failed to submit to Google Apps Script' }), {
+          status: 500,
+          headers: { 'Content-Type': 'application/json' }
+        });
+    }
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,

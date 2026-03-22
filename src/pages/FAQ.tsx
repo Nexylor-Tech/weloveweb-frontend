@@ -1,99 +1,92 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Plus, Minus } from 'lucide-react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+
+const faqs = [
+  {
+    question: 'What services do you offer?',
+    answer: 'We offer a comprehensive suite of digital marketing services including SEO, Social Media Management, Content Creation, Paid Advertising (PPC), Email Marketing, and Brand Strategy.'
+  },
+  {
+    question: 'How do you measure success?',
+    answer: 'Success is measured through key performance indicators (KPIs) tailored to your specific goals. These may include website traffic, conversion rates, lead generation, social engagement, and return on ad spend (ROAS).'
+  },
+  {
+    question: 'Do you work with startups?',
+    answer: 'Absolutely! We love working with startups to help them establish their brand identity and build a strong foundation for growth in the digital landscape.'
+  },
+  {
+    question: 'How long does it take to see results?',
+    answer: 'The timeline varies depending on the service. SEO typically takes 3-6 months to show significant results, while paid advertising campaigns can generate traffic and leads almost immediately.'
+  },
+  {
+    question: 'What makes weloveweb different?',
+    answer: 'Our approach combines data-driven insights with creative excellence. We don\'t just execute campaigns; we partner with you to understand your business deeply and create strategies that deliver measurable impact.'
+  }
+];
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const faqs = [
-    {
-      question: "What services do you offer?",
-      answer:
-        "We offer a wide range of web design and development services, including UI/UX design, front-end and back-end development, e-commerce solutions, and website maintenance.",
-    },
-    {
-      question: "How much does a website cost?",
-      answer:
-        "The cost of a website varies depending on its complexity, features, and the time required to build it. We offer custom quotes based on your specific needs.",
-    },
-    {
-      question: "How long does it take to build a website?",
-      answer:
-        "A typical website project takes anywhere from 2 days to 12 weeks, depending on the scope and complexity. We'll provide a detailed timeline during our initial consultation.",
-    },
-    {
-      question: "Do you offer ongoing support and maintenance?",
-      answer:
-        "Yes, we offer ongoing support and maintenance packages to ensure your website remains secure, up-to-date, and performing optimally.",
-    },
-    {
-      question: "Can you help with SEO?",
-      answer:
-        "Absolutely. We incorporate SEO best practices into all our web design and development projects to help improve your search engine rankings.",
-    },
-  ];
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col gap-32"
-    >
-      <section className="w-full">
-        <h1 className="text-[9vw] sm:text-[10vw] md:text-[9vw] lg:text-[7.5vw] xl:text-[7rem] leading-[0.85] font-black tracking-tighter uppercase mb-16 whitespace-nowrap">
+    <div className="bg-[#F8F9FA] min-h-screen text-brand-dark flex flex-col">
+      <Navbar />
+      <main className="flex-grow pt-32 pb-24 px-6 md:px-12 max-w-4xl mx-auto w-full">
+        <motion.h1
+          className="text-6xl md:text-[8rem] font-heading font-black leading-[0.85] tracking-tighter text-brand-yellow uppercase mb-12 text-center"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           FAQ
-        </h1>
-        <div className="flex flex-col md:flex-row gap-16 items-start border-t border-border pt-16">
-          <div className="w-full md:w-1/4">
-            <h2 className="text-lg font-bold uppercase tracking-widest flex items-center gap-2">
-              <span className="w-2 h-2 bg-accent"></span> Common Questions
-            </h2>
-          </div>
-          <div className="w-full md:w-3/4 flex flex-col gap-8">
-            <h3 className="text-3xl md:text-5xl font-serif leading-tight">
-              Find answers to the most common questions about our services and
-              processes.
-            </h3>
+        </motion.h1>
 
-            <div className="flex flex-col mt-16 border-t border-border">
-              {faqs.map((faq, index) => (
-                <div key={index} className="border-b border-border">
-                  <button
-                    onClick={() =>
-                      setOpenIndex(openIndex === index ? null : index)
-                    }
-                    className="w-full flex justify-between items-center py-8 text-left focus:outline-none group"
+        <div className="mt-16 space-y-4">
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={index}
+              className="border-b border-gray-300 pb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <button
+                className="w-full flex items-center justify-between py-4 text-left focus:outline-none"
+                onClick={() => toggleFAQ(index)}
+              >
+                <span className="text-2xl font-heading font-bold tracking-tight pr-8">{faq.question}</span>
+                <span className="text-brand-purple shrink-0">
+                  {openIndex === index ? <Minus size={24} /> : <Plus size={24} />}
+                </span>
+              </button>
+
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
                   >
-                    <span className="text-2xl font-black uppercase tracking-tighter group-hover:text-accent transition-colors">
-                      {faq.question}
-                    </span>
-                    <span className="text-2xl font-black group-hover:text-accent transition-colors">
-                      {openIndex === index ? "-" : "+"}
-                    </span>
-                  </button>
-                  <AnimatePresence>
-                    {openIndex === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <p className="pb-8 text-lg text-muted font-serif leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </div>
-          </div>
+                    <p className="font-sans text-lg text-gray-600 pb-6 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
-      </section>
-    </motion.div>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
