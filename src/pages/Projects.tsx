@@ -14,7 +14,7 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Our Projects
+          Projects
         </motion.h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
