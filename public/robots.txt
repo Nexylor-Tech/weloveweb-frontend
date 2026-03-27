@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /get-a-quote
+Sitemap: https://weloveweb.in/sitemap.xml
