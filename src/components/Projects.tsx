@@ -4,7 +4,7 @@ import confectionaryImg from '../assets/confectionary.png'
 import eventManagementImg from '../assets/eventmanagement.png'
 import restaurantImg from '../assets/restaurant.png'
 import tuitionImg from '../assets/tuitiondemo.png'
-
+import gymImg from '../assets/gymdemowebsite.png'
 export function Projects() {
 
   const projects = [
@@ -39,6 +39,14 @@ export function Projects() {
       image: `${tuitionImg}`,
       tags: ['Logo Design', 'Character', 'Art Illustration'],
       link: 'https://tuitiondemopage.pages.dev/'
+    },
+    {
+      id: '05',
+      title: 'Fitness & Gym',
+      category: 'Web Development',
+      image: `${gymImg}`,
+      tags: ['Logo Design', 'Colour matching', 'Backend'],
+      link: 'https://gymdemowebsite.pages.dev/'
     }
   ];
 
