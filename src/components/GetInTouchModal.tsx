@@ -5,6 +5,15 @@ import { useForm, ValidationError } from '@formspree/react';
 export function GetInTouchModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
   const [state, handleSubmit] = useForm(import.meta.env.VITE_GET_IN_TOUCH_KEY);
 
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    if (formData.get('bot-field')) {
+      return;
+    }
+    handleSubmit(e);
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -55,13 +64,16 @@ export function GetInTouchModal({ isOpen, onClose }: { isOpen: boolean, onClose:
                   </button>
                 </div>
               ) : (
-                <form className="space-y-8" onSubmit={handleSubmit}>
+                <form className="space-y-8" onSubmit={handleFormSubmit}>
+                  <input type="text" name="bot-field" className="hidden" tabIndex={-1} autoComplete="off" />
+                  
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-bold uppercase tracking-widest text-black/40">Full Name</label>
                     <input
                       id="name"
                       name="name"
                       type="text"
+                      required
                       placeholder="John Doe"
                       className="w-full border-b border-black/10 py-4 text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent"
                     />
@@ -74,6 +86,7 @@ export function GetInTouchModal({ isOpen, onClose }: { isOpen: boolean, onClose:
                       id="email"
                       name="email"
                       type="email"
+                      required
                       placeholder="john@example.com"
                       className="w-full border-b border-black/10 py-4 text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent"
                     />
@@ -86,6 +99,7 @@ export function GetInTouchModal({ isOpen, onClose }: { isOpen: boolean, onClose:
                       id="phone"
                       name="phone"
                       type="tel"
+                      required
                       placeholder="+91 (0) 000 000 000"
                       className="w-full border-b border-black/10 py-4 text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent"
                     />
@@ -94,7 +108,8 @@ export function GetInTouchModal({ isOpen, onClose }: { isOpen: boolean, onClose:
 
                   <div className="space-y-2">
                     <label htmlFor="subject" className="text-sm font-bold uppercase tracking-widest text-black/40">Subject</label>
-                    <select id="subject" name="subject" className="w-full border-b border-black/10 py-4 text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent appearance-none">
+                    <select id="subject" name="subject" required className="w-full border-b border-black/10 py-4 text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent appearance-none">
+                      <option value="" disabled selected>Select a subject</option>
                       <option>Branding &amp; Identity</option>
                       <option>Web Development</option>
                       <option>UI/UX Design</option>
@@ -109,6 +124,7 @@ export function GetInTouchModal({ isOpen, onClose }: { isOpen: boolean, onClose:
                     <textarea
                       id="message"
                       name="message"
+                      required
                       rows={4}
                       placeholder="Tell us about your project..."
                       className="w-full border-b border-black/10 py-4 text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent resize-none"

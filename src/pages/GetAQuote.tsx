@@ -4,6 +4,15 @@ import { useForm, ValidationError } from '@formspree/react';
 export function GetAQuote() {
   const [state, handleSubmit] = useForm(import.meta.env.VITE_GET_A_QUOTE_KEY);
 
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    if (formData.get('bot-field')) {
+      return;
+    }
+    handleSubmit(e);
+  };
+
   return (
     <div className="min-h-screen bg-white pt-24 md:pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -54,7 +63,9 @@ export function GetAQuote() {
                 </p>
               </div>
             ) : (
-              <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit}>
+              <form className="space-y-6 md:space-y-8" onSubmit={handleFormSubmit}>
+                <input type="text" name="bot-field" className="hidden" tabIndex={-1} autoComplete="off" />
+                
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                   <div className="space-y-2">
                     <label htmlFor="firstName" className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-white/40">First Name</label>
@@ -62,6 +73,7 @@ export function GetAQuote() {
                       id="firstName"
                       name="firstName"
                       type="text"
+                      required
                       placeholder="John"
                       className="w-full border-b border-white/10 py-3 md:py-4 text-base md:text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent"
                     />
@@ -73,6 +85,7 @@ export function GetAQuote() {
                       id="lastName"
                       name="lastName"
                       type="text"
+                      required
                       placeholder="Doe"
                       className="w-full border-b border-white/10 py-3 md:py-4 text-base md:text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent"
                     />
@@ -87,6 +100,7 @@ export function GetAQuote() {
                       id="email"
                       name="email"
                       type="email"
+                      required
                       placeholder="john@example.com"
                       className="w-full border-b border-white/10 py-3 md:py-4 text-base md:text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent"
                     />
@@ -98,6 +112,7 @@ export function GetAQuote() {
                       id="phone"
                       name="phone"
                       type="tel"
+                      required
                       placeholder="+91 (0) 000 000 000"
                       className="w-full border-b border-white/10 py-3 md:py-4 text-base md:text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent"
                     />
@@ -120,7 +135,8 @@ export function GetAQuote() {
 
                 <div className="space-y-2">
                   <label htmlFor="budget" className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-white/40">Estimated Budget</label>
-                  <select id="budget" name="budget" className="w-full border-b border-white/10 py-3 md:py-4 text-base md:text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent appearance-none">
+                  <select id="budget" name="budget" required className="w-full border-b border-white/10 py-3 md:py-4 text-base md:text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent appearance-none">
+                    <option value="" disabled selected className="text-black">Select a budget</option>
                     <option className="text-black" value="₹10,000 - ₹15,000">₹10,000 - ₹15,000</option>
                     <option className="text-black" value="₹15,000 - ₹30,000">₹15,000 - ₹30,000</option>
                     <option className="text-black" value="₹30,000 - ₹50,000">₹30,000 - ₹50,000</option>
@@ -134,6 +150,7 @@ export function GetAQuote() {
                   <textarea
                     id="details"
                     name="details"
+                    required
                     rows={4}
                     placeholder="Tell us about your project goals..."
                     className="w-full border-b border-white/10 py-3 md:py-4 text-base md:text-lg focus:outline-none focus:border-orange-500 transition-colors bg-transparent resize-none"

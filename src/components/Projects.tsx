@@ -1,54 +1,11 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import confectionaryImg from '../assets/confectionary.png'
-import eventManagementImg from '../assets/eventmanagement.png'
-import restaurantImg from '../assets/restaurant.png'
-import tuitionImg from '../assets/tuitiondemo.png'
-import gymImg from '../assets/gymdemowebsite.png'
-export function Projects() {
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { projects } from '../lib/projectList';
+import { useTransition } from './Layout';
 
-  const projects = [
-    {
-      id: '01',
-      title: 'Bakery',
-      category: 'Branding & Identity',
-      image: `${confectionaryImg}`,
-      tags: ['Logo Design', 'Visual Identity', 'Brand Guidelines'],
-      link: 'https://ritasovendemopage.pages.dev/'
-    },
-    {
-      id: '02',
-      title: 'Restaurant',
-      category: 'Web Development',
-      image: `${restaurantImg}`,
-      tags: ['Prototyping', 'Wireframe', 'Interface Design'],
-      link: 'https://roysfinedining.pages.dev/'
-    },
-    {
-      id: '03',
-      title: 'Event Management',
-      category: 'Digital Marketing',
-      image: `${eventManagementImg}`,
-      tags: ['SEO Design', 'Promotion', 'Social Media'],
-      link: 'https://bashandbloomeventorganisers.pages.dev/'
-    },
-    {
-      id: '04',
-      title: 'Tuition',
-      category: 'Motion & Illustration',
-      image: `${tuitionImg}`,
-      tags: ['Logo Design', 'Character', 'Art Illustration'],
-      link: 'https://tuitiondemopage.pages.dev/'
-    },
-    {
-      id: '05',
-      title: 'Fitness & Gym',
-      category: 'Web Development',
-      image: `${gymImg}`,
-      tags: ['Logo Design', 'Colour matching', 'Backend'],
-      link: 'https://gymdemowebsite.pages.dev/'
-    }
-  ];
+export function Projects({ showAll = false }: { showAll?: boolean } = {}) {
+  const { startTransition } = useTransition();
+  const displayedProjects = showAll ? projects : projects.slice(0, 4);
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-black/10 overflow-hidden">
@@ -69,11 +26,20 @@ export function Projects() {
             <p className="text-lg md:text-xl text-black/40 leading-relaxed">
               From bold branding to immersive web experiences, we craft what connects. Our work is a testament to our passion for design and technology.
             </p>
+            {!showAll && (
+              <button
+                onClick={() => startTransition('/projects')}
+                className="w-full md:w-auto bg-orange-500 text-white px-8 py-4 rounded-sm font-bold flex items-center justify-center gap-3 hover:bg-black transition-all duration-300"
+              >
+                View All Work
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            )}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-          {projects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
