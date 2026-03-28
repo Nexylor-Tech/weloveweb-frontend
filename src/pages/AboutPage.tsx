@@ -1,4 +1,5 @@
 import { About } from '../components/About';
+import { Testimonials } from '../components/Testimonials';
 
 export function AboutPage() {
   return (
@@ -26,6 +27,7 @@ export function AboutPage() {
           </div>
         </div>
       </div>
+      <Testimonials />
     </div>
   );
 }

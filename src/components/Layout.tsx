@@ -58,6 +58,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <AnimatePresence mode="wait">
           {isTransitioning && (
             <motion.div
+              key="splash-screen"
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}

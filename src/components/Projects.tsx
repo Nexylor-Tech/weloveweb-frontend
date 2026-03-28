@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { useId } from 'react';
 import { projects } from '../lib/projectList';
 import { useTransition } from './Layout';
 
 export function Projects({ showAll = false }: { showAll?: boolean } = {}) {
+  const componentId = useId();
   const { startTransition } = useTransition();
   const displayedProjects = showAll ? projects : projects.slice(0, 4);
 
@@ -17,8 +19,8 @@ export function Projects({ showAll = false }: { showAll?: boolean } = {}) {
               Our Projects
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-none">
-              Selected Projects from<br />
-              the <span className="text-orange-500">weloveweb</span> team
+              <span className="block">Selected Projects from</span>
+              <span className="block">the <span className="text-orange-500">weloveweb</span> team</span>
             </h2>
           </div>
 
@@ -41,7 +43,7 @@ export function Projects({ showAll = false }: { showAll?: boolean } = {}) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           {displayedProjects.map((project, index) => (
             <motion.div
-              key={project.id}
+              key={`${componentId}-${project.id}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -63,7 +65,7 @@ export function Projects({ showAll = false }: { showAll?: boolean } = {}) {
                     <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">{project.title}</h3>
                     <div className="flex flex-wrap gap-1.5 md:gap-2 pt-1.5 md:pt-2">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-white/40 px-1.5 md:px-2 py-0.5 md:py-1 border border-white/10 rounded-sm">
+                        <span key={`${componentId}-${project.id}-${tag}`} className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-white/40 px-1.5 md:px-2 py-0.5 md:py-1 border border-white/10 rounded-sm">
                           {tag}
                         </span>
                       ))}

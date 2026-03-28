@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { Monitor, Palette, Megaphone, Video } from 'lucide-react';
+import { useId } from 'react';
 
 export function Services() {
+  const componentId = useId();
 
   const services = [
     {
@@ -41,17 +43,17 @@ export function Services() {
           <div className="space-y-4 md:space-y-6">
             <div className="flex items-center gap-2 text-orange-500 font-bold uppercase tracking-widest text-[10px] md:text-sm">
               <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-              Our Services
+              <span>Our Services</span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-none">
-              Built to Elevate.<br />
-              Designed to <span className="text-orange-500">Perform.</span>
+              <span className="block">Built to Elevate.</span>
+              <span className="block">Designed to <span className="text-orange-500">Perform.</span></span>
             </h2>
           </div>
 
           <div className="lg:w-1/3 space-y-6 md:space-y-8">
             <p className="text-lg md:text-xl text-white/40 leading-relaxed">
-              We don't just make things look good — we make them work. weloveweb blends strategic thinking with compelling design to craft brand experiences that convert.
+              <span>We don't just make things look good — we make them work. weloveweb blends strategic thinking with compelling design to craft brand experiences that convert.</span>
             </p>
           </div>
         </div>
@@ -59,14 +61,16 @@ export function Services() {
         <div className="space-y-0">
           {services.map((service, index) => (
             <motion.div
-              key={service.id}
+              key={`${componentId}-${service.id}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
               className="group relative py-10 md:py-12 border-t border-white/10 flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 hover:bg-white/5 transition-all duration-500 px-4 md:px-8 -mx-4 md:-mx-8 cursor-pointer"
             >
-              <div className="text-xs md:text-sm font-bold text-white/20 uppercase tracking-widest">{service.id}</div>
+              <div className="text-xs md:text-sm font-bold text-white/20 uppercase tracking-widest">
+                <span>{service.id}</span>
+              </div>
 
               <div className="flex-1 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12">
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-sm bg-white/5 flex items-center justify-center group-hover:bg-orange-500 transition-colors duration-500 shrink-0">
@@ -74,17 +78,19 @@ export function Services() {
                 </div>
 
                 <div className="space-y-3 md:space-y-4 max-w-xl">
-                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight">{service.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
+                    <span>{service.title}</span>
+                  </h3>
                   <p className="text-sm md:text-base text-white/40 leading-relaxed group-hover:text-white/60 transition-colors">
-                    {service.description}
+                    <span>{service.description}</span>
                   </p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 md:gap-3 lg:w-1/3">
                 {service.tags.map((tag) => (
-                  <span key={tag} className="px-3 md:px-4 py-1 rounded-full border border-white/10 text-[10px] md:text-xs font-medium text-white/40 group-hover:border-white/20 group-hover:text-white/60 transition-all">
-                    {tag}
+                  <span key={`${componentId}-${service.id}-${tag}`} className="px-3 md:px-4 py-1 rounded-full border border-white/10 text-[10px] md:text-xs font-medium text-white/40 group-hover:border-white/20 group-hover:text-white/60 transition-all">
+                    <span>{tag}</span>
                   </span>
                 ))}
               </div>

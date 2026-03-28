@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { Quote } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -67,59 +67,63 @@ export function Testimonials() {
   const gridRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!containerRef.current || !gridRef.current || !contentRef.current) return;
 
-    const grid = gridRef.current;
-    const cards = grid.querySelectorAll('.testimonial-card');
-    const centerCard = cards[4]; // Middle card
+    let ctx = gsap.context(() => {
+      const grid = gridRef.current;
+      if (!grid) return;
+      
+      const cards = grid.querySelectorAll('.testimonial-card');
+      const centerCard = cards[4]; // Middle card
 
-    // Set initial state
-    gsap.set(grid, { scale: 0.8 });
-    gsap.set(contentRef.current, { y: 100, opacity: 0 });
+      // Set initial state
+      gsap.set(grid, { scale: 0.8 });
+      gsap.set(contentRef.current, { y: 100, opacity: 0 });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "+=400%", // Longer scroll for smoother transition
-        pin: true,
-        scrub: 1,
-      }
-    });
-
-    tl.to(grid, {
-      scale: 1,
-      duration: 1,
-      ease: "none"
-    })
-      .to(cards, {
-        opacity: (i) => i === 4 ? 1 : 0, // Fade out all but center
-        scale: (i) => i === 4 ? 1.2 : 0.8,
-        duration: 1,
-        stagger: {
-          amount: 0.5,
-          from: "center"
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=400%", // Longer scroll for smoother transition
+          pin: true,
+          scrub: 1,
         }
+      });
+
+      tl.to(grid, {
+        scale: 1,
+        duration: 1,
+        ease: "none"
       })
-      .to(grid, {
-        scale: 15, // Massive zoom through
-        duration: 3,
-        ease: "power2.in"
-      }, "-=0.5")
-      .to(centerCard, {
-        opacity: 0,
-        duration: 0.5,
-      }, "-=1")
-      .to(contentRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 1.5,
-        ease: "power3.out"
-      }, "-=1.5");
+        .to(cards, {
+          opacity: (i) => i === 4 ? 1 : 0, // Fade out all but center
+          scale: (i) => i === 4 ? 1.2 : 0.8,
+          duration: 1,
+          stagger: {
+            amount: 0.5,
+            from: "center"
+          }
+        })
+        .to(grid, {
+          scale: 15, // Massive zoom through
+          duration: 3,
+          ease: "power2.in"
+        }, "-=0.5")
+        .to(centerCard, {
+          opacity: 0,
+          duration: 0.5,
+        }, "-=1")
+        .to(contentRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power3.out"
+        }, "-=1.5");
+    }, containerRef);
 
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      ctx.revert();
     };
   }, []);
 
