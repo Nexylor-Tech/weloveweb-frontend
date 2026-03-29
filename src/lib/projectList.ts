@@ -3,6 +3,7 @@ import eventManagementImg from '../assets/eventmanagement.png';
 import restaurantImg from '../assets/restaurant.png';
 import tuitionImg from '../assets/tuitiondemo.png';
 import gymImg from '../assets/gymdemowebsite.png';
+import gym2Img from '../assets/gymdemowebsite2.png';
 
 export const projects = [
   {
@@ -33,12 +34,20 @@ export const projects = [
     id: '04',
     title: 'Fitness & Gym',
     category: 'Web Development',
+    image: `${gym2Img}`,
+    tags: ['Logo Design', 'Colour matching', 'Backend'],
+    link: 'https://gymdemowebsite2.pages.dev/'
+  },
+  {
+    id: '05',
+    title: 'Fitness & Gym',
+    category: 'Web Development',
     image: `${gymImg}`,
     tags: ['Logo Design', 'Colour matching', 'Backend'],
     link: 'https://gymdemowebsite.pages.dev/'
   },
   {
-    id: '05',
+    id: '06',
     title: 'Tuition',
     category: 'Motion & Illustration',
     image: `${tuitionImg}`,
